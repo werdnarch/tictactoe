@@ -5,6 +5,7 @@ import GridItem from "../ui/GridItem";
 import { useGameData } from "@/src/context/GameContext";
 import X from "../icons/X";
 import O from "../icons/O";
+import RestartButton from "../ui/RestartButton";
 
 export default function Grid() {
   const { player1Mark } = useGameData();
@@ -21,35 +22,33 @@ export default function Grid() {
             <p>TURN</p>
           </div>
           <div className="flex items-center justify-end">
-            <button className="flex items-center justify-center cursor-pointer bg-[#A8BEC8] transition-colors duration-200 ease-in-out hover:bg-[#DBE8ED] rounded-sm shadow-[0px_6px_rgb(107,137,151)] p-3">
-              <Restart />
-            </button>
+            <RestartButton />
           </div>
         </header>
         {/* GRID */}
 
         <div className=" grid grid-cols-3 grid-rows-3 gap-4 w-[90vw] max-w-[600px] aspect-square mx-auto">
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
-          <GridItem />
+          <GridItem turn={turn} setTurn={setTurn} />
+          <GridItem turn={turn} setTurn={setTurn} />
+          <GridItem turn={turn} setTurn={setTurn} />
+          <GridItem turn={turn} setTurn={setTurn} />
+          <GridItem turn={turn} setTurn={setTurn} />
+          <GridItem turn={turn} setTurn={setTurn} />
+          <GridItem turn={turn} setTurn={setTurn} />
+          <GridItem turn={turn} setTurn={setTurn} />
+          <GridItem turn={turn} setTurn={setTurn} />
         </div>
 
         <div className="grid grid-cols-3 mt-8 gap-4 w-[90vw] max-w-[600px] h-15">
-          <button className="bg-blue-300 flex flex-col rounded-2xl items-center justify-center">
+          <button className="bg-[#31C2BC] flex flex-col rounded-2xl items-center justify-center">
             <p>X</p>
             <p className="font-bold text-2xl">0</p>
           </button>
-          <button className="bg-blue-300 flex flex-col rounded-2xl items-center justify-center">
+          <button className="bg-[#A8BEC8] flex flex-col rounded-2xl items-center justify-center">
             <p>TIES</p>
             <p className="font-bold text-2xl">0</p>
           </button>
-          <button className="bg-blue-300 flex flex-col rounded-2xl items-center justify-center">
+          <button className="bg-[#F3B136] flex flex-col rounded-2xl items-center justify-center">
             <p>0(P1)</p>
             <p className="font-bold text-2xl">0</p>
           </button>
