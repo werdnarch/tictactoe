@@ -7,11 +7,13 @@ import Logo from "../ui/Logo";
 
 interface SettingsProps {
   gameStarted: boolean;
+  setGameMode: (value: "cpu" | "player") => void;
   setGameStarted: (value: boolean) => void;
 }
 
 export default function Settings({
   gameStarted,
+  setGameMode,
   setGameStarted,
 }: SettingsProps) {
   return (
@@ -20,13 +22,17 @@ export default function Settings({
       <Container gameStarted={gameStarted} setGameStarted={setGameStarted} />
       <div className="flex flex-col gap-5 w-[90%] max-w-[500px]">
         <button
-          onClick={() => setGameStarted(true)}
+          onClick={() => {
+            setGameStarted(true), setGameMode("cpu");
+          }}
           className="bg-[#F2B137] w-full cursor-pointer p-3 rounded-[10px]  font-bold hover:bg-[#FFC860] shadow-[0px_8px_0px_rgba(242,177,55,0.7)]"
         >
           NEW GAME (VS CPU)
         </button>
         <button
-          onClick={() => setGameStarted(true)}
+          onClick={() => {
+            setGameStarted(true), setGameMode("player");
+          }}
           className="bg-[#31C3BD] w-full cursor-pointer p-3 rounded-[10px] font-bold hover:bg-[#65E9E4] shadow-[0px_8px_0px_rgba(49,195,189,0.7)]"
         >
           NEW GAME (VS CPU)

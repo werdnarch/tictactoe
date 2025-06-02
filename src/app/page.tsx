@@ -7,13 +7,18 @@ import Grid from "../components/pages/Grid";
 
 export default function Home() {
   const [gameStarted, setGameStarted] = useState<boolean>(false);
+  const [gameMode, setGameMode] = useState<"cpu" | "player">("player");
   return (
     <main className="h-full">
       <GameContextProvider>
         {gameStarted ? (
-          <Grid />
+          <Grid gameMode={gameMode} />
         ) : (
-          <Settings gameStarted={gameStarted} setGameStarted={setGameStarted} />
+          <Settings
+            gameStarted={gameStarted}
+            setGameMode={setGameMode}
+            setGameStarted={setGameStarted}
+          />
         )}
       </GameContextProvider>
     </main>

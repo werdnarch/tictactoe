@@ -10,10 +10,19 @@ type Move = {
 
 interface GridItemProps {
   turn: "x" | "o";
+  index: number;
   setTurn: (value: "x" | "o") => void;
+  setXIndexes: React.Dispatch<React.SetStateAction<number[]>>;
+  setOIndexes: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-export default function GridItem({ turn, setTurn }: GridItemProps) {
+export default function GridItem({
+  turn,
+  setTurn,
+  index,
+  setXIndexes,
+  setOIndexes,
+}: GridItemProps) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [clicked, setClicked] = useState<boolean>(false);
   const [move, setMove] = useState<"x" | "o" | null>(null);
@@ -21,12 +30,20 @@ export default function GridItem({ turn, setTurn }: GridItemProps) {
   const handleTurnChange = () => {
     if (clicked) return;
 
+    if (turn === "x") {
+      setXIndexes((prev) => [...prev, index]);
+    } else if (turn === "o") {
+      setOIndexes((prev) => [...prev, index]);
+    }
+
     setMove(turn);
     setClicked(true);
     setTurn(turn === "x" ? "o" : "x");
   };
+
   return (
     <div
+      defaultValue={index}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleTurnChange}
