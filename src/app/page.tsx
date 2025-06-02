@@ -6,7 +6,7 @@ import { GameContextProvider } from "../context/GameContext";
 import Grid from "../components/pages/Grid";
 
 export default function Home() {
-  const [gameStarted, setGameStarted] = useState<boolean>(true);
+  const [gameStarted, setGameStarted] = useState<boolean>(false);
   return (
     <main className="h-full">
       <GameContextProvider>

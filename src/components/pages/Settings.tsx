@@ -19,10 +19,16 @@ export default function Settings({
       <Logo />
       <Container gameStarted={gameStarted} setGameStarted={setGameStarted} />
       <div className="flex flex-col gap-5 w-[90%] max-w-[500px]">
-        <button className="bg-[#F2B137] w-full cursor-pointer p-3 rounded-[10px]  font-bold hover:bg-[#FFC860] shadow-[0px_8px_0px_rgba(242,177,55,0.7)]">
+        <button
+          onClick={() => setGameStarted(true)}
+          className="bg-[#F2B137] w-full cursor-pointer p-3 rounded-[10px]  font-bold hover:bg-[#FFC860] shadow-[0px_8px_0px_rgba(242,177,55,0.7)]"
+        >
           NEW GAME (VS CPU)
         </button>
-        <button className="bg-[#31C3BD] w-full cursor-pointer p-3 rounded-[10px] font-bold hover:bg-[#65E9E4] shadow-[0px_8px_0px_rgba(49,195,189,0.7)]">
+        <button
+          onClick={() => setGameStarted(true)}
+          className="bg-[#31C3BD] w-full cursor-pointer p-3 rounded-[10px] font-bold hover:bg-[#65E9E4] shadow-[0px_8px_0px_rgba(49,195,189,0.7)]"
+        >
           NEW GAME (VS CPU)
         </button>
       </div>
